@@ -158,7 +158,6 @@ export function useRobotController({
 export namespace Controller {
   export type Props = {
     gridSize: number
-    onInvalidMove: () => void
   }
 
   export type Controls = {

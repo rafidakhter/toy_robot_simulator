@@ -12,7 +12,6 @@ export function Simulator() {
 
   const robotController = useRobotController({
     gridSize: GRID_SIZE,
-    onInvalidMove: () => showToast('Invalid Move: Cant move in this direction'),
   })
 
   const handleGridItemClick: MouseEventHandler<HTMLButtonElement> = async (
