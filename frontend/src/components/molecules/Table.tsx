@@ -16,7 +16,7 @@ export function Table({
   return (
     <ul
       className={classNames(
-        'grid grid-cols-5 grid-rows-5 aspect-square',
+        'table-container',
         className,
       )}
     >
@@ -31,13 +31,7 @@ export function Table({
             <button
               id={squareId}
               onClick={onClick}
-              className={classNames(
-                'size-[80px]',
-                'flex items-center justify-center',
-                'border border-solid border-[#505354]',
-                'bg-[#2A3538] text-white hover:bg-[#3A4346] active:bg-[#4A5356]',
-                'transition-colors duration-200',
-              )}
+              className='table-grid-item'
             >
               {isActive && TableItem}
             </button>

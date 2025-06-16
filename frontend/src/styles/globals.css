@@ -1,3 +1,76 @@
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
+
+@layer components {
+  ._animation-transition {
+    @apply transition-all duration-200 ease-in-out;
+  }
+  .root-container {
+    @apply flex flex-col items-center justify-between;
+    @apply min-h-screen w-screen;
+    @apply bg-base;
+  }
+
+  .instruction-container {
+    @apply bg-base-subtle-l1 p-l4 rounded-[24px];
+  }
+
+  .simulator-container {
+    @apply flex flex-col justify-center items-center gap-l4;
+  }
+
+  .table-container {
+    @apply max-w-[400px] grid grid-cols-5 grid-rows-5 aspect-square;
+  }
+
+  .table-grid-item {
+    @apply size-[80px] flex items-center justify-center;
+    @apply border border-solid border-base-subtle-l3;
+    @apply _animation-transition;
+    @apply bg-base-subtle-l1  hover:bg-base-subtle-l2 active:bg-base-subtle-l3;
+  }
+
+  .control-board-container {
+    @apply flex flex-col justify-center items-center gap-l4;
+  }
+
+  .button-primary {
+    @apply font-semibold w-full;
+    @apply min-w-[120px] p-[12px] rounded-[8px];
+    @apply bg-gradient-to-br from-cyan-500 to-teal-400;
+    @apply hover:opacity-80 _animation-transition;
+  }
+
+  .button-secondary-content {
+    @apply flex justify-center;
+    @apply p-[12px] rounded-[8px];
+    @apply flex-1 bg-base-subtle-l1 text-onBase;
+  }
+
+  .button-secondary {
+    @apply w-full flex p-0.5;
+    @apply min-w-[120px] rounded-[8px];
+    @apply bg-gradient-to-br from-cyan-500 to-teal-400;
+    @apply hover:opacity-80 transition-opacity duration-200;
+  }
+
+  .report-container {
+    @apply fixed bottom-0 w-[400px] aspect-video overflow-scroll;
+    @apply block aspect-video;
+    @apply min-w-[120px] p-l2 rounded-[12px];
+    @apply flex-1 bg-base-subtle-l2 text-onBase;
+    @apply _animation-transition;
+    @apply space-y-[12px];
+    @apply opacity-100 translate-y-[-20%];
+    @apply border border-solid border-base-subtle-l3;
+
+    &.close-report{
+      @apply opacity-0 translate-y-[130%];
+    }
+  }
+
+  .robot-container {
+    @apply size-[80px] p-[12px];
+  }
+}

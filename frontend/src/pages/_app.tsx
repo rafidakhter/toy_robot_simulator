@@ -1,4 +1,4 @@
-import { ToastProvider } from '@/components/molecules/Robot/Toast'
+import { ToastProvider } from '@/components/molecules/Toast'
 import '@/styles/globals.css'
 import type { AppProps } from 'next/app'
 

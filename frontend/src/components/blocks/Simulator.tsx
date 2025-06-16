@@ -2,7 +2,7 @@ import { ControlBoard, Report, Robot, Table } from '@/components'
 import { useRobotController } from '@/components/molecules/Robot/useRobotController'
 import classNames from 'classnames'
 import { MouseEventHandler, useEffect, useState } from 'react'
-import { useToast } from '../molecules/Robot/Toast'
+import { useToast } from '../molecules/Toast'
 import { Orientation } from '@toy-robot-simulator/shared'
 
 const GRID_SIZE = 5
@@ -34,7 +34,7 @@ export default function Simulator() {
   }, [])
 
   return (
-    <section className="flex flex-col justify-center items-center gap-[24px]">
+    <section className="simulator-container">
       <Table
         activeLocation={robotController.location}
         className="max-w-[400px]"

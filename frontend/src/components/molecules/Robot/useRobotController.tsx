@@ -1,7 +1,7 @@
 import { useState } from 'react'
 import { Location} from '@/models'
 import { LocationService } from '@/services'
-import { useToast } from './Toast'
+import { useToast } from '../Toast'
 import { Orientation } from '@toy-robot-simulator/shared'
 
 const SERVER_ERROR_MESSAGE = 'OOPS! Unable To Save Location'
