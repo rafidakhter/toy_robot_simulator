@@ -12,7 +12,7 @@ export default function Home() {
         <Simulator />
       </div>
 
-      <footer className="text-cyan-500 pt-[48px] pb-[96px]">
+      <footer className="pt-[48px] pb-[96px]">
         <span className='text-onBase-impact'>By Rafid Akhter</span>
       </footer>
     </main>
