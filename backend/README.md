@@ -145,12 +145,3 @@ Create a `.env` file in the root directory with:
 NODE_ENV=development
 PORT=4800
 ```
-
-## Contributing
-
-1. Follow the domain-driven design architecture
-2. Write tests for new features
-3. Use TypeScript for type safety
-4. Follow the existing code style
-5. Update API documentation
-6. Add appropriate error handling
