@@ -41,7 +41,7 @@ This application simulates a toy robot moving on a 5x5 square tabletop with the 
    - Position reporting
    - Resting Position
 
-## Design Decisions
+## Design Assumptions
 
 1. **Integrated a reset button**
    - allows users to start from scratch
@@ -50,6 +50,7 @@ This application simulates a toy robot moving on a 5x5 square tabletop with the 
    - because it reflects more what the buttons are doing
 
 3. **On arrow key down robot move and rotate**
+
 
 
 ## Project Structure
