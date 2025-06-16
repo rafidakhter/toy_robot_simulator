@@ -1,98 +1,156 @@
-<p align="center">
-  <a href="http://nestjs.com/" target="blank"><img src="https://nestjs.com/img/logo-small.svg" width="120" alt="Nest Logo" /></a>
-</p>
+# Toy Robot Simulator Backend
 
-[circleci-image]: https://img.shields.io/circleci/build/github/nestjs/nest/master?token=abc123def456
-[circleci-url]: https://circleci.com/gh/nestjs/nest
+A NestJS application that provides the backend services for the Toy Robot Simulator. The backend handles robot position management, movement validation, and state persistence.
 
-  <p align="center">A progressive <a href="http://nodejs.org" target="_blank">Node.js</a> framework for building efficient and scalable server-side applications.</p>
-    <p align="center">
-<a href="https://www.npmjs.com/~nestjscore" target="_blank"><img src="https://img.shields.io/npm/v/@nestjs/core.svg" alt="NPM Version" /></a>
-<a href="https://www.npmjs.com/~nestjscore" target="_blank"><img src="https://img.shields.io/npm/l/@nestjs/core.svg" alt="Package License" /></a>
-<a href="https://www.npmjs.com/~nestjscore" target="_blank"><img src="https://img.shields.io/npm/dm/@nestjs/common.svg" alt="NPM Downloads" /></a>
-<a href="https://circleci.com/gh/nestjs/nest" target="_blank"><img src="https://img.shields.io/circleci/build/github/nestjs/nest/master" alt="CircleCI" /></a>
-<a href="https://discord.gg/G7Qnnhy" target="_blank"><img src="https://img.shields.io/badge/discord-online-brightgreen.svg" alt="Discord"/></a>
-<a href="https://opencollective.com/nest#backer" target="_blank"><img src="https://opencollective.com/nest/backers/badge.svg" alt="Backers on Open Collective" /></a>
-<a href="https://opencollective.com/nest#sponsor" target="_blank"><img src="https://opencollective.com/nest/sponsors/badge.svg" alt="Sponsors on Open Collective" /></a>
-  <a href="https://paypal.me/kamilmysliwiec" target="_blank"><img src="https://img.shields.io/badge/Donate-PayPal-ff3f59.svg" alt="Donate us"/></a>
-    <a href="https://opencollective.com/nest#sponsor"  target="_blank"><img src="https://img.shields.io/badge/Support%20us-Open%20Collective-41B883.svg" alt="Support us"></a>
-  <a href="https://twitter.com/nestframework" target="_blank"><img src="https://img.shields.io/twitter/follow/nestframework.svg?style=social&label=Follow" alt="Follow us on Twitter"></a>
-</p>
-  <!--[![Backers on Open Collective](https://opencollective.com/nest/backers/badge.svg)](https://opencollective.com/nest#backer)
-  [![Sponsors on Open Collective](https://opencollective.com/nest/sponsors/badge.svg)](https://opencollective.com/nest#sponsor)-->
+## Features
 
-## Description
+- RESTful API endpoints for robot control
+- Position validation and boundary checking
+- State persistence with SQLite
+- Swagger API documentation
+- TypeORM for database operations
+- Domain-driven design architecture
 
-[Nest](https://github.com/nestjs/nest) framework TypeScript starter repository.
+## Project Structure
 
-## Project setup
-
-```bash
-$ npm install
+```
+backend/
+├── src/
+│   ├── domains/           # Domain-driven design modules
+│   │   └── locations/     # Location management
+│   │       ├── dto.ts     # Data transfer objects
+│   │       ├── locations.controller.ts
+│   │       ├── locations.service.ts
+│   │       └── locations.module.ts
+│   ├── entities/          # Database entities
+│   │   └── locations.entity.ts
+│   ├── main.ts           # Application entry point
+│   └── app.module.ts     # Root module
+└── test/                 # Test files
 ```
 
-## Compile and run the project
+## Technology Stack
 
-```bash
-# development
-$ npm run start
+- NestJS
+- TypeORM
+- SQLite
+- TypeScript
+- Jest
+- Swagger/OpenAPI
 
-# watch mode
-$ npm run start:dev
+## Getting Started
 
-# production mode
-$ npm run start:prod
+1. **Prerequisites**
+   ```bash
+   # Make sure shared package is built first
+   cd ../packages/shared
+   npm install
+   npm run build
+   ```
+
+2. **Installation**
+   ```bash
+   cd ../backend
+   npm install
+   ```
+
+3. **Development**
+   ```bash
+   npm run start:dev
+   ```
+   The API will be available at `http://localhost:4800`
+
+4. **Building for Production**
+   ```bash
+   npm run build
+   npm run start:prod
+   ```
+
+## Available Scripts
+
+- `npm run start:dev` - Start development server with hot reload
+- `npm run build` - Build for production
+- `npm run start:prod` - Start production server
+- `npm run lint` - Run ESLint
+- `npm run format` - Format code with Prettier
+- `npm run test:e2e` - Run end-to-end tests
+
+## API Endpoints
+
+### Locations
+
+- `GET /locations` - Get the last stored location
+- `POST /locations` - Create a new location
+
+### Request/Response Format
+
+```typescript
+// Location DTO
+interface LocationDto {
+  row: number;
+  column: number;
+  orientation: 'NORTH' | 'SOUTH' | 'EAST' | 'WEST';
+}
 ```
 
-## Run tests
+## Architecture
 
-```bash
-# unit tests
-$ npm run test
+### Domain Layer
+- Contains business logic
+- Implements core rules
+- Location validation
+- Movement calculations
 
-# e2e tests
-$ npm run test:e2e
+### Application Layer
+- Orchestrates domain objects
+- Handles use cases
+- Manages transactions
 
-# test coverage
-$ npm run test:cov
+### Infrastructure Layer
+- Database operations
+- External service integration
+- Technical implementations
+
+### Presentation Layer
+- REST API controllers
+- Request validation
+- Response formatting
+
+## Database
+
+The application uses SQLite with TypeORM:
+- In-memory database for testing
+- File-based database for development/production
+- Automatic schema synchronization in non-production environments
+
+## Testing
+
+The backend uses Jest for testing:
+- Unit tests for services and utilities
+- E2E tests for API endpoints
+- Test coverage reporting
+
+## API Documentation
+
+Swagger documentation is available at `/api` when running the server. It includes:
+- Available endpoints
+- Request/Response schemas
+- Example requests
+- Authentication requirements
+
+## Environment Variables
+
+Create a `.env` file in the root directory with:
+```
+NODE_ENV=development
+PORT=4800
 ```
 
-## Deployment
+## Contributing
 
-When you're ready to deploy your NestJS application to production, there are some key steps you can take to ensure it runs as efficiently as possible. Check out the [deployment documentation](https://docs.nestjs.com/deployment) for more information.
-
-If you are looking for a cloud-based platform to deploy your NestJS application, check out [Mau](https://mau.nestjs.com), our official platform for deploying NestJS applications on AWS. Mau makes deployment straightforward and fast, requiring just a few simple steps:
-
-```bash
-$ npm install -g @nestjs/mau
-$ mau deploy
-```
-
-With Mau, you can deploy your application in just a few clicks, allowing you to focus on building features rather than managing infrastructure.
-
-## Resources
-
-Check out a few resources that may come in handy when working with NestJS:
-
-- Visit the [NestJS Documentation](https://docs.nestjs.com) to learn more about the framework.
-- For questions and support, please visit our [Discord channel](https://discord.gg/G7Qnnhy).
-- To dive deeper and get more hands-on experience, check out our official video [courses](https://courses.nestjs.com/).
-- Deploy your application to AWS with the help of [NestJS Mau](https://mau.nestjs.com) in just a few clicks.
-- Visualize your application graph and interact with the NestJS application in real-time using [NestJS Devtools](https://devtools.nestjs.com).
-- Need help with your project (part-time to full-time)? Check out our official [enterprise support](https://enterprise.nestjs.com).
-- To stay in the loop and get updates, follow us on [X](https://x.com/nestframework) and [LinkedIn](https://linkedin.com/company/nestjs).
-- Looking for a job, or have a job to offer? Check out our official [Jobs board](https://jobs.nestjs.com).
-
-## Support
-
-Nest is an MIT-licensed open source project. It can grow thanks to the sponsors and support by the amazing backers. If you'd like to join them, please [read more here](https://docs.nestjs.com/support).
-
-## Stay in touch
-
-- Author - [Kamil Myśliwiec](https://twitter.com/kammysliwiec)
-- Website - [https://nestjs.com](https://nestjs.com/)
-- Twitter - [@nestframework](https://twitter.com/nestframework)
-
-## License
-
-Nest is [MIT licensed](https://github.com/nestjs/nest/blob/master/LICENSE).
+1. Follow the domain-driven design architecture
+2. Write tests for new features
+3. Use TypeScript for type safety
+4. Follow the existing code style
+5. Update API documentation
+6. Add appropriate error handling
