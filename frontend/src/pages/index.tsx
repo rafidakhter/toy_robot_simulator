@@ -1,4 +1,4 @@
-import Simulator from '@/components/blocks/Simulator'
+import { Simulator } from '@/components'
 
 export default function Home() {
   return (

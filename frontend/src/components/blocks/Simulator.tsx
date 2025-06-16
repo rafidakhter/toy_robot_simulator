@@ -7,7 +7,7 @@ import { Orientation } from '@toy-robot-simulator/shared'
 
 const GRID_SIZE = 5
 
-export default function Simulator() {
+export function Simulator() {
   const { showToast } = useToast()
 
   const robotController = useRobotController({
