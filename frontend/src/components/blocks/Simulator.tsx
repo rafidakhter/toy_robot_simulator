@@ -1,14 +1,11 @@
 import { ControlBoard, Report, Robot, Table } from '@/components'
 import { useRobotController } from '@/components/organisms/Robot/useRobotController'
-import classNames from 'classnames'
 import { MouseEventHandler, useEffect } from 'react'
-import { useToast } from '../molecules/Toast'
 import { Orientation } from '@toy-robot-simulator/shared'
 
 const GRID_SIZE = 5
 
 export function Simulator() {
-  const { showToast } = useToast()
 
   const robotController = useRobotController({
     gridSize: GRID_SIZE,
