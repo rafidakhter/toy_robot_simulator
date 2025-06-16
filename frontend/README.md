@@ -123,11 +123,3 @@ Create a `.env.local` file in the root directory with:
 ```
 BACK_END_SERVER_BSE_URL=http://localhost:4800
 ```
-
-## Contributing
-
-1. Follow the component architecture
-2. Write tests for new features
-3. Use TypeScript for type safety
-4. Follow the existing code style
-5. Update documentation as needed
