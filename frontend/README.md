@@ -70,8 +70,6 @@ frontend/
 - `npm run dev` - Start development server
 - `npm run build` - Build for production
 - `npm run start` - Start production server
-- `npm run lint` - Run ESLint
-- `npm run format` - Format code with Prettier
 
 ## Component Architecture
 
@@ -102,13 +100,6 @@ The frontend communicates with the backend through the `DataClient` service:
 - Error management
 - Response transformation
 
-## Testing
-
-Tests are written using Jest and React Testing Library:
-- Unit tests for services and utilities
-- Component tests for UI elements
-- Integration tests for feature workflows
-
 ## Styling
 
 The application uses Tailwind CSS for styling:
@@ -123,3 +114,60 @@ Create a `.env.local` file in the root directory with:
 ```
 BACK_END_SERVER_BSE_URL=http://localhost:4800
 ```
+
+## Future Test Cases
+
+### LocationService Tests
+
+1. **getLastLocation**
+   - Should fetch and transform location data correctly
+   - Should handle undefined response from API
+   - Should handle API errors gracefully
+   - Should transform DTO to Location model correctly
+   - Should handle network errors with appropriate error message
+
+2. **updateLocation**
+   - Should send location data in correct format
+   - Should transform Location model to DTO correctly
+   - Should handle API errors with appropriate error message
+   - Should handle network errors gracefully
+   - Should validate location data before sending
+
+### DataClient Tests
+
+1. **GET Requests**
+   - Should make GET request with correct URL
+   - Should handle successful responses
+   - Should handle 404 responses
+   - Should handle 500 server errors
+   - Should handle network errors
+   - Should handle malformed JSON responses
+   - Should handle empty responses
+
+2. **POST Requests**
+   - Should make POST request with correct headers
+   - Should stringify request body correctly
+   - Should handle successful responses
+   - Should handle validation errors (400)
+   - Should handle server errors (500)
+   - Should handle network errors
+   - Should handle malformed request data
+
+3. **Error Handling**
+   - Should provide user-friendly error messages
+   - Should log errors to console
+   - Should handle timeout scenarios
+   - Should handle CORS errors
+   - Should handle rate limiting
+
+4. **Response Processing**
+   - Should parse JSON responses correctly
+   - Should handle empty responses
+   - Should handle different content types
+   - Should validate response data structure
+
+5. **Integration Tests**
+   - Should work correctly with LocationService
+   - Should handle concurrent requests
+   - Should maintain consistent state
+   - Should handle API endpoint changes gracefully

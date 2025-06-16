@@ -10,6 +10,7 @@ A NestJS application that provides the backend services for the Toy Robot Simula
 - Swagger API documentation
 - TypeORM for database operations
 - Domain-driven design architecture
+- Addressed cors errors
 
 ## Project Structure
 
@@ -71,8 +72,6 @@ backend/
 - `npm run start:dev` - Start development server with hot reload
 - `npm run build` - Build for production
 - `npm run start:prod` - Start production server
-- `npm run lint` - Run ESLint
-- `npm run format` - Format code with Prettier
 - `npm run test:e2e` - Run end-to-end tests
 
 ## API Endpoints
@@ -82,16 +81,6 @@ backend/
 - `GET /locations` - Get the last stored location
 - `POST /locations` - Create a new location
 
-### Request/Response Format
-
-```typescript
-// Location DTO
-interface LocationDto {
-  row: number;
-  column: number;
-  orientation: 'NORTH' | 'SOUTH' | 'EAST' | 'WEST';
-}
-```
 
 ## Architecture
 

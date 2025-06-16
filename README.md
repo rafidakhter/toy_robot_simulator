@@ -2,6 +2,45 @@
 
 A full-stack application that simulates a toy robot moving on a 5x5 table. The project follows a monorepo structure with separate frontend and backend services.
 
+## Project Description
+
+This application simulates a toy robot moving on a 5x5 square tabletop with the following features:
+
+- Interactive 5x5 grid interface
+- Robot movement controls (Place, Move, Left, Right)
+- Position tracking and history
+- Keyboard controls (arrow keys)
+- State persistence
+- Real-time position updates
+
+### Key Features
+
+1. **Robot Placement**
+   - Click on table space to PLACE robot
+   - Origin (0,0) at SOUTH WEST corner (bottom left)
+   - First command must be PLACE
+   - Subsequent PLACE commands allowed
+   - Invalid placements ignored
+
+2. **Robot Movement**
+   - MOVE: One space forward in facing direction
+   - LEFT/RIGHT: 90-degree rotation
+   - Prevents falling off table
+   - Ignores invalid moves
+
+3. **Position Tracking**
+   - Saves position in database
+   - Restores position on page refresh
+   - Maintains movement history
+   - Updates database on position changes
+
+4. **User Interface**
+   - Button controls
+   - Arrow key support
+   - Visual direction indicators
+   - Position reporting
+   - Resting Position
+
 ## Project Structure
 
 ```
@@ -69,23 +108,6 @@ The frontend follows a component-based architecture:
    - Data validation
    - API integration
 
-## Key Features
-
-1. **Robot Movement**
-   - Place, Move, Left, Right commands
-   - Boundary checking
-   - Direction management
-
-2. **Location Tracking**
-   - Position history
-   - State persistence
-   - Real-time updates
-
-3. **User Interface**
-   - Interactive grid
-   - Command input
-   - Visual feedback
-
 ## Technology Stack
 
 ### Backend
@@ -100,16 +122,20 @@ The frontend follows a component-based architecture:
 - React
 - TypeScript
 - Tailwind CSS
+- Jest for testing
 
 ## Getting Started
 
-1. **Installation**
+1. **Prerequisites**
    ```bash
    # First, build the shared package
    cd packages/shared
    npm install
    npm run build
+   ```
 
+2. **Installation**
+   ```bash
    # Install root dependencies
    cd ../..
    npm install
@@ -123,7 +149,7 @@ The frontend follows a component-based architecture:
    npm install
    ```
 
-2. **Development**
+3. **Development**
    ```bash
    # Start backend (in one terminal)
    cd backend
@@ -142,18 +168,33 @@ The frontend follows a component-based architecture:
    npm run test:e2e    # Run end-to-end tests
    ```
 
-4. **Linting and Formatting**
-   ```bash
-   # Backend
-   cd backend
-   npm run lint        # Run ESLint
-   npm run format      # Format code with Prettier
+### Edge Cases
 
-   # Frontend
-   cd frontend
-   npm run lint        # Run ESLint
-   npm run format      # Format code with Prettier
-   ```
+1. **Invalid Placement**
+   - Click outside table
+   - Expected: No action
+
+2. **Invalid Movement**
+   - Move towards table edge
+   - Expected: Position unchanged
+
+3. **Multiple Placements**
+   - Place robot multiple times
+   - Expected: Previous robot removed
+
+4. **State Persistence**
+   - Refresh page
+   - Expected: Robot position restored
+
+### Keyboard Controls
+
+1. **Arrow Keys**
+   - Use arrow keys to move
+   - Expected: Robot moves in arrow direction
+
+2. **Button Controls**
+   - Use on-screen buttons
+   - Expected: Robot responds to commands
 
 ## API Documentation
 
@@ -163,3 +204,35 @@ The API documentation is available at `/api` when running the backend service. I
 - Request/Response schemas
 - Authentication requirements
 - Example requests
+
+## Design Decisions
+
+1. **Component Architecture**
+   - Atomic design pattern
+   - Reusable components
+   - Clear separation of concerns
+
+2. **State Management**
+   - React hooks for local state
+   - Custom hooks for complex logic
+   - Database persistence
+
+3. **Error Handling**
+   - Graceful error recovery
+   - User-friendly messages
+   - Comprehensive logging
+
+## Future Improvements
+
+1. **Testing**
+   - Additional unit tests
+   - Integration tests
+   - E2E tests
+
+2. **Performance**
+   - Request caching
+   - Optimistic updates
+   - Performance monitoring
+
+
+   Refer to the README.md fils in ./frontend and ./backend for more information
