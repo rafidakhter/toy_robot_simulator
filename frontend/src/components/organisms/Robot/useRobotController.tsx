@@ -28,7 +28,7 @@ export function useRobotController({
   const updateReport = (message: string) =>
     setMoveHistory((prev) => [...prev, message])
 
-  const withErrorToast = <T extends any[]>(
+  const handleAsyncCalls = <T extends any[]>(
     fn: (...args: T) => Promise<any>,
     errorMsg: string,
   ) => {
@@ -42,7 +42,7 @@ export function useRobotController({
     }
   }
 
-  const updateLocation = withErrorToast(
+  const updateLocation = handleAsyncCalls(
     async (futureLocation: Location, action: Controller.COMMANDS) => {
       if (!isValidLocation(futureLocation)) {
         showToast('Invalid Move')
@@ -57,7 +57,7 @@ export function useRobotController({
     SERVER_ERROR_MESSAGE,
   )
 
-  const rotate = withErrorToast(
+  const rotate = handleAsyncCalls(
     async (direction: 'CLOCKWISE' | 'ANTICLOCKWISE') => {
       if (!location) return
       const orientationMap: Record<Orientation, Orientation> = {
@@ -92,7 +92,7 @@ export function useRobotController({
     }
   }
 
-  const move = withErrorToast(async () => {
+  const move = handleAsyncCalls(async () => {
     if (!location) return
     const futureLocation = getFutureLocation(location.orientation)
 
@@ -101,7 +101,7 @@ export function useRobotController({
     }
   }, SERVER_ERROR_MESSAGE)
 
-  const initialize = withErrorToast(async () => {
+  const initialize = handleAsyncCalls(async () => {
     const lastCoordinates = await locationService.getLastLocation()
     if (lastCoordinates && isValidLocation(lastCoordinates)) {
       await updateLocation(lastCoordinates, COMMANDS.RESTORED)
@@ -110,11 +110,11 @@ export function useRobotController({
     }
   }, 'Unable to retrieve last location ')
 
-  const placeRobot = withErrorToast(async (placedLocation: Location) => {
+  const placeRobot = handleAsyncCalls(async (placedLocation: Location) => {
     await updateLocation(placedLocation, COMMANDS.PLACED)
   }, SERVER_ERROR_MESSAGE)
 
-  const handleArrowKeyInteraction = withErrorToast(
+  const handleArrowKeyInteraction = handleAsyncCalls(
     async (event: KeyboardEvent) => {
       if (!location) return
       const keyToOrientation: Record<string, Orientation> = {
