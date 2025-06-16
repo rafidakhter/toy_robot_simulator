@@ -100,13 +100,18 @@ The frontend follows a component-based architecture:
 - React
 - TypeScript
 - Tailwind CSS
-- Jest for testing
 
 ## Getting Started
 
 1. **Installation**
    ```bash
+   # First, build the shared package
+   cd packages/shared
+   npm install
+   npm run build
+
    # Install root dependencies
+   cd ../..
    npm install
 
    # Install backend dependencies
@@ -120,11 +125,11 @@ The frontend follows a component-based architecture:
 
 2. **Development**
    ```bash
-   # Start backend
+   # Start backend (in one terminal)
    cd backend
    npm run start:dev
 
-   # Start frontend
+   # Start frontend (in another terminal)
    cd frontend
    npm run dev
    ```
@@ -133,8 +138,22 @@ The frontend follows a component-based architecture:
    ```bash
    # Backend tests
    cd backend
-   npm run test:e2e
+   npm run test        # Run unit tests
+   npm run test:e2e    # Run end-to-end tests
+   ```
 
+4. **Linting and Formatting**
+   ```bash
+   # Backend
+   cd backend
+   npm run lint        # Run ESLint
+   npm run format      # Format code with Prettier
+
+   # Frontend
+   cd frontend
+   npm run lint        # Run ESLint
+   npm run format      # Format code with Prettier
+   ```
 
 ## API Documentation
 

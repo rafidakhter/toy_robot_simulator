@@ -1,5 +1,5 @@
 import { ControlBoard, Report, Robot, Table } from '@/components'
-import { useRobotController } from '@/components/molecules/Robot/useRobotController'
+import { useRobotController } from '@/components/organisms/Robot/useRobotController'
 import classNames from 'classnames'
 import { MouseEventHandler, useEffect, useState } from 'react'
 import { useToast } from '../molecules/Toast'
