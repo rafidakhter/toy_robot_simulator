@@ -232,4 +232,4 @@ The API documentation is available at `/api` when running the backend service. I
 
 
 
-## Refer to the README.md fils in ./frontend and ./backend for more information
+## Refer to the README.md files in ./frontend and ./backend for more information
