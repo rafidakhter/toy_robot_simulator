@@ -51,6 +51,8 @@ This application simulates a toy robot moving on a 5x5 square tabletop with the 
 
 3. **On arrow key down robot move and rotate**
 
+4. **On Report click display robot movement history**
+
 
 
 ## Project Structure
