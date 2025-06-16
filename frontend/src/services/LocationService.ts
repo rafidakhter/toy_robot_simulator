@@ -8,21 +8,19 @@ export class LocationService {
   private readonly dataClient = new DataClient()
   private readonly urlKey = 'locations'
 
-  private transformDtoToData(dto?: LocationDto): Location | undefined {
-    return (
-      dto && {
-        row: dto.row,
-        column: dto.column,
-        orientation: dto.orientation,
-      }
-    )
+  private transformDtoToData(dto: LocationDto): Location {
+    return {
+      row: dto.row,
+      column: dto.column,
+      orientation: dto.orientation,
+    }
   }
 
   public async getLastLocation(): Promise<Location | undefined> {
     try {
       const url = `${this.baseUrl}/${this.urlKey}`
       const dto = await this.dataClient.get<LocationDto | undefined>(url)
-      return this.transformDtoToData(dto)
+      return dto && this.transformDtoToData(dto)
     } catch {
       throw new Error(
         '[LocationService][getLastCoordinates]: Failed to fetch last location',
@@ -39,7 +37,7 @@ export class LocationService {
         ...newLocation,
         orientation: newLocation.orientation as Orientation,
       } as LocationDto)
-      return this.transformDtoToData(dto)
+      return dto && this.transformDtoToData(dto)
     } catch {
       throw new Error(
         '[LocationService][updateCoordinate]: Failed to update last location',
