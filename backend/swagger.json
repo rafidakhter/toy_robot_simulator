@@ -1,0 +1,68 @@
+{
+  "openapi": "3.0.0",
+  "paths": {
+    "/locations": {
+      "get": {
+        "operationId": "LocationsController_lastLocation",
+        "parameters": [],
+        "responses": {
+          "200": {
+            "description": ""
+          }
+        },
+        "summary": "Get the last stored location",
+        "tags": [
+          "Locations"
+        ]
+      },
+      "post": {
+        "operationId": "LocationsController_create",
+        "parameters": [],
+        "requestBody": {
+          "required": true,
+          "content": {
+            "application/json": {
+              "schema": {
+                "$ref": "#/components/schemas/CreateLocationDto"
+              }
+            }
+          }
+        },
+        "responses": {
+          "201": {
+            "description": "",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/CreateLocationDto"
+                }
+              }
+            }
+          },
+          "400": {
+            "description": "Invalid Params"
+          }
+        },
+        "tags": [
+          "Locations"
+        ]
+      }
+    }
+  },
+  "info": {
+    "title": "Toy Robot Simulator API",
+    "description": "API documentation for the Toy Robot Simulator backend",
+    "version": "1.0",
+    "contact": {}
+  },
+  "tags": [],
+  "servers": [],
+  "components": {
+    "schemas": {
+      "CreateLocationDto": {
+        "type": "object",
+        "properties": {}
+      }
+    }
+  }
+}

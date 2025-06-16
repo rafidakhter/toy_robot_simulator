@@ -1,0 +1,15 @@
+{
+  "name": "toy-robot-simulator",
+  "version": "1.0.0",
+  "private": true,
+  "workspaces": [
+    "backend",
+    "frontend",
+    "packages/*"
+  ],
+  "scripts": {
+    "dev:backend": "npm run start:dev --workspace=backend",
+    "dev:frontend": "npm run dev --workspace=frontend",
+    "build:shared": "npm run build --workspace=@toy-robot-simulator/shared"
+  }
+} 
