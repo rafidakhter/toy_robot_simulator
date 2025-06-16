@@ -3,11 +3,15 @@
 @tailwind utilities;
 
 @layer components {
+  .margin-between-components-{
+    @apply my-[54px]
+  }
   ._animation-transition {
     @apply transition-all duration-200 ease-in-out;
   }
   .root-container {
     @apply flex flex-col items-center justify-between;
+    @apply pt-[54px];
     @apply min-h-screen w-screen;
     @apply bg-base;
   }
@@ -17,15 +21,15 @@
   }
 
   .simulator-container {
-    @apply flex flex-col justify-center items-center gap-l4;
+    @apply flex flex-col justify-center items-center;
   }
 
   .table-container {
-    @apply max-w-[400px] grid grid-cols-5 grid-rows-5 aspect-square;
+    @apply md:min-w-[600px] grid grid-cols-5 grid-rows-5 aspect-square;
   }
 
   .table-grid-item {
-    @apply size-[80px] flex items-center justify-center;
+    @apply w-full min-w-[80px] aspect-square flex items-center justify-center;
     @apply border border-solid border-base-subtle-l3;
     @apply _animation-transition;
     @apply bg-base-subtle-l1  hover:bg-base-subtle-l2 active:bg-base-subtle-l3;

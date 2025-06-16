@@ -10,7 +10,7 @@ A Next.js application that provides the user interface for the Toy Robot Simulat
 - Position history tracking
 - Keyboard controls support
 - Real-time position updates
-- Responsive design with Tailwind CSS
+- Error handling when server is non functional
 
 ## Project Structure
 
@@ -26,7 +26,14 @@ frontend/
 │   ├── services/           # API and data services
 │   └── styles/             # Global styles
 ├── public/                 # Static assets
-└── __tests__/             # Test files
+
+
+```
+## Environment Variables
+
+Create a `.env.local` file in the root directory with:
+```
+BACK_END_SERVER_BSE_URL=http://localhost:4800
 ```
 
 ## Technology Stack
@@ -73,16 +80,12 @@ frontend/
 
 ## Component Architecture
 
-### Atoms
-- Basic UI elements like buttons, inputs, and icons
-- Highly reusable and presentational
-
 ### Molecules
-- Composite components like the Robot and ControlBoard
+- Composite components ControlBoard
 - Combine atoms to create functional units
 
 ### Organisms
-- Complex components that form major UI sections
+- Complex components that form major UI sections like the Robot
 - Handle state management and business logic
 
 ## State Management
@@ -104,20 +107,13 @@ The frontend communicates with the backend through the `DataClient` service:
 
 The application uses Tailwind CSS for styling:
 - Utility-first approach
-- Responsive design
 - Custom theme configuration
-- Dark mode support
 
-## Environment Variables
+## Future Work
 
-Create a `.env.local` file in the root directory with:
-```
-BACK_END_SERVER_BSE_URL=http://localhost:4800
-```
+### Create unit tests for the services
 
-## Future Test Cases
-
-### LocationService Tests
+#### LocationService Tests
 
 1. **getLastLocation**
    - Should fetch and transform location data correctly
@@ -133,7 +129,7 @@ BACK_END_SERVER_BSE_URL=http://localhost:4800
    - Should handle network errors gracefully
    - Should validate location data before sending
 
-### DataClient Tests
+#### DataClient Tests
 
 1. **GET Requests**
    - Should make GET request with correct URL
@@ -141,7 +137,6 @@ BACK_END_SERVER_BSE_URL=http://localhost:4800
    - Should handle 404 responses
    - Should handle 500 server errors
    - Should handle network errors
-   - Should handle malformed JSON responses
    - Should handle empty responses
 
 2. **POST Requests**
@@ -151,23 +146,6 @@ BACK_END_SERVER_BSE_URL=http://localhost:4800
    - Should handle validation errors (400)
    - Should handle server errors (500)
    - Should handle network errors
-   - Should handle malformed request data
 
-3. **Error Handling**
-   - Should provide user-friendly error messages
-   - Should log errors to console
-   - Should handle timeout scenarios
-   - Should handle CORS errors
-   - Should handle rate limiting
-
-4. **Response Processing**
-   - Should parse JSON responses correctly
-   - Should handle empty responses
-   - Should handle different content types
-   - Should validate response data structure
-
-5. **Integration Tests**
-   - Should work correctly with LocationService
-   - Should handle concurrent requests
-   - Should maintain consistent state
-   - Should handle API endpoint changes gracefully
+#### Error state handling
+   - create better error handling system

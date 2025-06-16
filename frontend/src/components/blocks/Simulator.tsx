@@ -1,7 +1,7 @@
 import { ControlBoard, Report, Robot, Table } from '@/components'
 import { useRobotController } from '@/components/organisms/Robot/useRobotController'
 import classNames from 'classnames'
-import { MouseEventHandler, useEffect, useState } from 'react'
+import { MouseEventHandler, useEffect } from 'react'
 import { useToast } from '../molecules/Toast'
 import { Orientation } from '@toy-robot-simulator/shared'
 
@@ -34,7 +34,7 @@ export default function Simulator() {
   }, [])
 
   return (
-    <section className="simulator-container">
+    <section className="simulator-container space-y-l4">
       <Table
         activeLocation={robotController.location}
         className="max-w-[400px]"
@@ -54,7 +54,6 @@ export default function Simulator() {
       />
 
       <Report reports={robotController.moveHistory} />
-
     </section>
   )
 }

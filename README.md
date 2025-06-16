@@ -1,6 +1,6 @@
 # Toy Robot Simulator
 
-A full-stack application that simulates a toy robot moving on a 5x5 table. The project follows a monorepo structure with separate frontend and backend services.
+A full-stack application that simulates a toy robot moving on a 5x5 table. The project follows a monorepo structure with frontend and backend services.
 
 ## Project Description
 
@@ -164,27 +164,8 @@ The frontend follows a component-based architecture:
    ```bash
    # Backend tests
    cd backend
-   npm run test        # Run unit tests
-   npm run test:e2e    # Run end-to-end tests
+   npm run test
    ```
-
-### Edge Cases
-
-1. **Invalid Placement**
-   - Click outside table
-   - Expected: No action
-
-2. **Invalid Movement**
-   - Move towards table edge
-   - Expected: Position unchanged
-
-3. **Multiple Placements**
-   - Place robot multiple times
-   - Expected: Previous robot removed
-
-4. **State Persistence**
-   - Refresh page
-   - Expected: Robot position restored
 
 ### Keyboard Controls
 
@@ -235,4 +216,14 @@ The API documentation is available at `/api` when running the backend service. I
    - Performance monitoring
 
 
-   Refer to the README.md fils in ./frontend and ./backend for more information
+## Design Decisions
+
+1. **Integrated a reset button**
+   - allows users to start from scratch
+
+2. **Renamed the buttons to clockwise and ati clockwise**
+   - because it reflects more what the buttons are doing
+
+
+
+## Refer to the README.md fils in ./frontend and ./backend for more information

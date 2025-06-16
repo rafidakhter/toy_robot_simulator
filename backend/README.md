@@ -115,17 +115,13 @@ The application uses SQLite with TypeORM:
 ## Testing
 
 The backend uses Jest for testing:
-- Unit tests for services and utilities
+- Unit tests for services
 - E2E tests for API endpoints
-- Test coverage reporting
 
 ## API Documentation
 
 Swagger documentation is available at `/api` when running the server. It includes:
 - Available endpoints
-- Request/Response schemas
-- Example requests
-- Authentication requirements
 
 ## Environment Variables
 

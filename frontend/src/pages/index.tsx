@@ -3,7 +3,7 @@ import Simulator from '@/components/blocks/Simulator'
 export default function Home() {
   return (
     <main className="root-container">
-      <div className="space-y-[24px] flex justify-center items-center flex-col">
+      <div className="space-y-l4 flex justify-center items-center flex-col">
         {/* instructions */}
         <p className="instruction-container">
           <span className='text-onBase'>Click to place the robot, use the buttons or arrows to move</span>
