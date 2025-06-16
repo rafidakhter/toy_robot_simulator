@@ -72,7 +72,7 @@ backend/
 - `npm run start:dev` - Start development server with hot reload
 - `npm run build` - Build for production
 - `npm run start:prod` - Start production server
-- `npm run test:e2e` - Run end-to-end tests
+- `npm run test` - Run test
 
 ## API Endpoints
 
