@@ -41,6 +41,17 @@ This application simulates a toy robot moving on a 5x5 square tabletop with the 
    - Position reporting
    - Resting Position
 
+## Design Decisions
+
+1. **Integrated a reset button**
+   - allows users to start from scratch
+
+2. **Renamed the buttons to clockwise and ati clockwise**
+   - because it reflects more what the buttons are doing
+
+3. **On arrow key down robot move and rotate**
+
+
 ## Project Structure
 
 ```
@@ -216,13 +227,7 @@ The API documentation is available at `/api` when running the backend service. I
    - Performance monitoring
 
 
-## Design Decisions
 
-1. **Integrated a reset button**
-   - allows users to start from scratch
-
-2. **Renamed the buttons to clockwise and ati clockwise**
-   - because it reflects more what the buttons are doing
 
 
 
