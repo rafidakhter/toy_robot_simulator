@@ -37,7 +37,6 @@ export function Simulator() {
     <section className="simulator-container space-y-l4">
       <Table
         activeLocation={robotController.location}
-        className="max-w-[400px]"
         onClick={handleGridItemClick}
         tableItem={
           <Robot orientation={robotController.location?.orientation} />
