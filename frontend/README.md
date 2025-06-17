@@ -107,7 +107,6 @@ The frontend communicates with the backend through the `DataClient` service:
 
 The application uses Tailwind CSS for styling:
 - Utility-first approach
-- Custom theme configuration
 
 ## Future Work
 
